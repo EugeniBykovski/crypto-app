@@ -109,13 +109,16 @@
   *::-webkit-scrollbar {
     width: 3px;
   }
+
   *::-webkit-scrollbar-thumb {
     background: #699849;
     border-radius: 12px;
   }
+
   * {
     @apply border-border;
   }
+
   :root {
     --bg-color: #ffffff;
     --text-color: #000000;
@@ -128,7 +131,11 @@
     color: var(--text-color);
   }
 
-  .pagination .swiper-pagination .swiper-pagination-bullet {
-    background: #699849;
+  .rotate-y-0 {
+    transform: rotateY(0deg);
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
   }
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, memo } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { CongratsModalProps } from "./types";
 
-const CongratsModal: FC<CongratsModalProps> = ({ isOpen, onClose }) => (
+const CongratsModal: FC<CongratsModalProps> = memo(({ isOpen, onClose }) => (
   <Dialog open={isOpen}>
     <DialogContent>
       <DialogHeader>
@@ -31,6 +31,6 @@ const CongratsModal: FC<CongratsModalProps> = ({ isOpen, onClose }) => (
       </DialogHeader>
     </DialogContent>
   </Dialog>
-);
+));
 
 export default CongratsModal;

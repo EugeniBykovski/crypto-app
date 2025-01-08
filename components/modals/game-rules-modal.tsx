@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, memo } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { GameRulesModalProps } from "./types";
 
-const GameRulesModal: FC<GameRulesModalProps> = ({ isOpen, onPlay }) => (
+const GameRulesModal: FC<GameRulesModalProps> = memo(({ isOpen, onPlay }) => (
   <Dialog open={isOpen}>
     <DialogContent>
       <DialogHeader>
@@ -31,6 +31,6 @@ const GameRulesModal: FC<GameRulesModalProps> = ({ isOpen, onPlay }) => (
       </DialogHeader>
     </DialogContent>
   </Dialog>
-);
+));
 
 export default GameRulesModal;
