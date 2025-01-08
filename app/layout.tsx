@@ -13,8 +13,8 @@ export const metadata: Metadata = {
   title: "Crypto App",
   description: "Crypto App",
   icons: {
-    icon: "/assets/icons/Icon.svg",
-    shortcut: "/assets/icons/Icon.svg",
+    icon: "/public/assets/icons/Icon.svg",
+    shortcut: "/public/assets/icons/Icon.svg",
   },
 };
 

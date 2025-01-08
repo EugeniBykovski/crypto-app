@@ -7,6 +7,7 @@ import {
   DialogContent,
   DialogDescription,
   DialogHeader,
+  DialogTitle,
 } from "@/components/ui/dialog";
 import { CongratsModalProps } from "./types";
 
@@ -14,9 +15,11 @@ const CongratsModal: FC<CongratsModalProps> = ({ isOpen, onClose }) => (
   <Dialog open={isOpen}>
     <DialogContent>
       <DialogHeader>
+        <DialogTitle>
+          <h2 className="text-xl font-semibold">Поздравляем!</h2>
+        </DialogTitle>
         <DialogDescription>
           <div className="p-6 text-center">
-            <h2 className="text-xl font-semibold">Поздравляем!</h2>
             <p className="mt-2 text-gray-600">
               Вы выиграли виртуальные $5000! Скачайте приложение, чтобы начать.
             </p>
