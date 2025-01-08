@@ -5,6 +5,7 @@ import Head from "next/head";
 import { NextIntlClientProvider } from "next-intl";
 import clsx from "clsx";
 import { getLocale, getMessages } from "next-intl/server";
+import Header from "@/components/header/header";
 
 const dmSans = DM_Sans({ subsets: ["latin"] });
 
@@ -36,6 +37,7 @@ export default async function RootLayout({
       <body className={clsx(dmSans.className, "antialiased")}>
         <NextIntlClientProvider messages={messages}>
           <div className="flex flex-col min-h-screen">
+            <Header />
             <main className="md:fixed w-[100%]">{children}</main>
           </div>
         </NextIntlClientProvider>
