@@ -57,7 +57,12 @@ const Home: FC = memo(() => {
   }, [foundPairs]);
 
   const handleCardClick = useCallback(
-    createCardClickHandler(flippedIndexes, foundPairs, setFlippedIndexes),
+    (index: number) =>
+      createCardClickHandler(
+        flippedIndexes,
+        foundPairs,
+        setFlippedIndexes
+      )(index),
     [flippedIndexes, foundPairs]
   );
 
