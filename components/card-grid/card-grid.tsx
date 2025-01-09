@@ -2,10 +2,10 @@
 
 import { FC, memo, useMemo } from "react";
 import Image, { StaticImageData } from "next/image";
-import { motion } from "framer-motion";
 import { CardGridProps } from "./types";
 import { bgCard } from "@/public/assets";
 import { gradients } from "@/data/mock";
+import { motion } from "framer-motion";
 
 const CardGrid: FC<CardGridProps> = memo(
   ({ shuffledImages, flippedIndexes, foundPairs, onCardClick }) => {
@@ -19,10 +19,8 @@ const CardGrid: FC<CardGridProps> = memo(
     );
 
     const getGradient = (image: StaticImageData) => {
-      const pairIndex = foundPairs.findIndex(
-        (foundImage) => foundImage.src === image.src
-      );
-      return pairIndex !== -1 ? gradients[pairIndex % gradients.length] : null;
+      const pairIndex = foundPairs.findIndex(({ src }) => src === image.src);
+      return pairIndex >= 0 ? gradients[pairIndex % gradients.length] : null;
     };
 
     return (
@@ -38,7 +36,6 @@ const CardGrid: FC<CardGridProps> = memo(
               onClick={() => onCardClick(index)}
               whileHover={{ scale: 1.05 }}
             >
-              {/* back card */}
               <motion.div
                 className={`absolute inset-0 flex items-center justify-center ${
                   isFlipped ? "rotate-y-0" : "rotate-y-180"
@@ -72,8 +69,6 @@ const CardGrid: FC<CardGridProps> = memo(
                   </div>
                 )}
               </motion.div>
-
-              {/* front card  bgCard*/}
               <motion.div
                 className="absolute inset-0 rounded-xl flex justify-center items-center bg-cover bg-center"
                 style={{

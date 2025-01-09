@@ -38,7 +38,6 @@ export const comments = {
       name: "Chinedu Akintoye",
       text: "I’m so happy I won!",
       time: "0s",
-      likes: 379,
       avatar: peopleImage1Eu,
     },
     {
@@ -46,7 +45,6 @@ export const comments = {
       name: "Adewale Kareem",
       text: "Happyyyy!",
       time: "0s",
-      likes: 245,
       avatar: peopleImage2Eu,
       commentImage: commentImage1Eu,
     },
@@ -99,7 +97,6 @@ export const comments = {
       name: "Juan Dela Cruz",
       text: "I’m so happy I won!",
       time: "0s",
-      likes: 379,
       avatar: peopleImage1Asia,
     },
     {
@@ -107,7 +104,6 @@ export const comments = {
       name: "Michael Reyes",
       text: "Happyyyy!",
       time: "0s",
-      likes: 245,
       avatar: peopleImage2Asia,
       commentImage: commentImage1Asia,
     },
@@ -160,7 +156,6 @@ export const comments = {
       name: "Maria Gonzalez",
       text: "I’m so happy I won!",
       time: "0s",
-      likes: 379,
       avatar: peopleImage1Mex,
     },
     {
@@ -168,7 +163,6 @@ export const comments = {
       name: "Isabel Castillo",
       text: "Happyyyy!",
       time: "0s",
-      likes: 245,
       avatar: peopleImage2Mex,
       commentImage: commentImage1Mex,
     },

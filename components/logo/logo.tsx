@@ -5,7 +5,7 @@ import Link from "next/link";
 import { LogoIcon } from "@/public/assets";
 
 const Logo: FC = memo(() => (
-  <Link href={"/"} className="flex justify-center items-center gap-2">
+  <Link href={"/"} className="flex justify-center items-center gap-1">
     <LogoIcon className="hover:opacity-85 transition" />
     <h2 className="text-white text-2xl font-semibold">CryptoSkill</h2>
   </Link>

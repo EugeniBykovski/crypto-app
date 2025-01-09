@@ -10,11 +10,11 @@ import Header from "@/components/header/header";
 const dmSans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Crypto App",
-  description: "Crypto App",
+  title: "Crypto Skill",
+  description: "Crypto Skill",
   icons: {
-    icon: "/public/assets/icons/Icon.svg",
-    shortcut: "/public/assets/icons/Icon.svg",
+    icon: "/assets/icons/Icon.svg",
+    shortcut: "/assets/icons/Icon.svg",
   },
 };
 

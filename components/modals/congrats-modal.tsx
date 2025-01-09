@@ -2,13 +2,16 @@
 
 import { FC, memo, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { CongratsModalProps } from "./types";
 import Image from "next/image";
 import { money } from "@/public/assets";
 import Confetti from "react-confetti";
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const CongratsModal: FC<CongratsModalProps> = memo(({ isOpen, onClose }) => {
+  const t = useTranslations("congrats-modal");
   const [showConfetti, setShowConfetti] = useState(false);
 
   useEffect(() => {
@@ -21,41 +24,47 @@ const CongratsModal: FC<CongratsModalProps> = memo(({ isOpen, onClose }) => {
 
   return (
     <Dialog open={isOpen}>
-      <DialogContent className="w-[86%]">
-        <div className="text-center">
-          <Image
-            src={money}
-            alt="Congratulations"
-            width={72}
-            height={72}
-            className="mx-auto"
-          />
-          <h2 className="text-[#5E44ED] text-3xl font-bold my-5">
-            Congratulations!
-          </h2>
-          <p className="mt-2 text-sm text-zinc-500">
-            {showConfetti && (
-              <Confetti
-                width={500}
-                height={window.innerHeight}
-                numberOfPieces={200}
-                recycle={false}
-              />
-            )}
-            You won virtual{" "}
-            <span className="text-zinc-700 font-semibold">$3,000</span>!
-          </p>
-          <p className="text-sm text-gray-500 mt-1">
-            Download the app now and trade for free.
-          </p>
-          <Button
-            className="mt-5 focus-visible:ring-0 bg-purple-600 text-white py-5 w-full rounded-lg shadow-md hover:bg-purple-700 font-semibold text-md"
-            onClick={onClose}
-          >
-            Download Bonus App
-          </Button>
-        </div>
-      </DialogContent>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.8 }}
+        transition={{ duration: 0.9, ease: "easeInOut" }}
+      >
+        <DialogContent className="w-[86%]">
+          <DialogTitle></DialogTitle>
+          <div className="text-center">
+            <Image
+              src={money}
+              alt="Congratulations"
+              width={72}
+              height={72}
+              className="mx-auto"
+            />
+            <h2 className="text-[#5E44ED] text-3xl font-bold my-5">
+              {t("title")}
+            </h2>
+            <p className="mt-2 text-sm text-zinc-500">
+              {showConfetti && (
+                <Confetti
+                  width={500}
+                  height={window.innerHeight}
+                  numberOfPieces={200}
+                  recycle={false}
+                />
+              )}
+              {t("description-1")}{" "}
+              <span className="text-zinc-700 font-semibold">{t("bonus")}</span>!
+            </p>
+            <p className="text-sm text-gray-500 mt-1">{t("description-2")}</p>
+            <Button
+              className="mt-5 focus-visible:ring-0 bg-[#5E44ED] text-white py-5 w-full rounded-lg shadow-md hover:bg-purple-700 font-semibold text-md"
+              onClick={onClose}
+            >
+              {t("download")}
+            </Button>
+          </div>
+        </DialogContent>
+      </motion.div>
     </Dialog>
   );
 });

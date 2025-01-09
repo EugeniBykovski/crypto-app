@@ -37,14 +37,14 @@ const Home: FC = memo(() => {
       if (shuffledImages[firstIndex] === shuffledImages[secondIndex])
         setFoundPairs((prev) => [...prev, shuffledImages[firstIndex]]);
 
-      const resetFlipped = setTimeout(() => setFlippedIndexes([]), 1500);
+      const resetFlipped = setTimeout(() => setFlippedIndexes([]), 2000);
       return () => clearTimeout(resetFlipped);
     }
   }, [flippedIndexes]);
 
   useEffect(() => {
     if (flippedIndexes.length === 1) {
-      const resetTimer = setTimeout(() => setFlippedIndexes([]), 1500);
+      const resetTimer = setTimeout(() => setFlippedIndexes([]), 2000);
       return () => clearTimeout(resetTimer);
     }
   }, [flippedIndexes]);
@@ -74,7 +74,7 @@ const Home: FC = memo(() => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen md:mt-32 sm:mt-8">
+    <div className="flex flex-col items-center min-h-screen md:mt-32 sm:mt-8">
       <GameRulesModal isOpen={showModal} onPlay={handlePlay} />
       <HeaderWithTimer timer={timer} />
       <CardGrid
