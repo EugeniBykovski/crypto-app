@@ -1,36 +1,63 @@
 "use client";
 
-import { FC, memo } from "react";
+import { FC, memo, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { CongratsModalProps } from "./types";
+import Image from "next/image";
+import { money } from "@/public/assets";
+import Confetti from "react-confetti";
 
-const CongratsModal: FC<CongratsModalProps> = memo(({ isOpen, onClose }) => (
-  <Dialog open={isOpen}>
-    <DialogContent>
-      <DialogHeader>
-        <DialogTitle>
-          <h2 className="text-xl font-semibold">Поздравляем!</h2>
-        </DialogTitle>
-        <DialogDescription>
-          <div className="p-6 text-center">
-            <p className="mt-2 text-gray-600">
-              Вы выиграли виртуальные $5000! Скачайте приложение, чтобы начать.
-            </p>
-            <Button className="mt-4" onClick={onClose}>
-              Закрыть
-            </Button>
-          </div>
-        </DialogDescription>
-      </DialogHeader>
-    </DialogContent>
-  </Dialog>
-));
+const CongratsModal: FC<CongratsModalProps> = memo(({ isOpen, onClose }) => {
+  const [showConfetti, setShowConfetti] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      setShowConfetti(true);
+      const timer = setTimeout(() => setShowConfetti(false), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen]);
+
+  return (
+    <Dialog open={isOpen}>
+      <DialogContent className="w-[86%]">
+        <div className="text-center">
+          <Image
+            src={money}
+            alt="Congratulations"
+            width={72}
+            height={72}
+            className="mx-auto"
+          />
+          <h2 className="text-[#5E44ED] text-3xl font-bold my-5">
+            Congratulations!
+          </h2>
+          <p className="mt-2 text-sm text-zinc-500">
+            {showConfetti && (
+              <Confetti
+                width={500}
+                height={window.innerHeight}
+                numberOfPieces={200}
+                recycle={false}
+              />
+            )}
+            You won virtual{" "}
+            <span className="text-zinc-700 font-semibold">$3,000</span>!
+          </p>
+          <p className="text-sm text-gray-500 mt-1">
+            Download the app now and trade for free.
+          </p>
+          <Button
+            className="mt-5 focus-visible:ring-0 bg-purple-600 text-white py-5 w-full rounded-lg shadow-md hover:bg-purple-700 font-semibold text-md"
+            onClick={onClose}
+          >
+            Download Bonus App
+          </Button>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+});
 
 export default CongratsModal;

@@ -1,10 +1,16 @@
 "use client";
 
 import { FC, memo } from "react";
+import { bg } from "@/public/assets";
 import Logo from "../logo/logo";
 
 const Header: FC = memo(() => (
-  <header className="md:fixed top-0 left-0 w-full h-[8vh] bg-[#F1F1F0] flex justify-center items-center z-50">
+  <header
+    className="relative md:fixed top-0 left-0 w-full sm:h-[9vh] md:h-[8vh] rounded-b-3xl flex justify-center items-center z-50 bg-cover bg-center"
+    style={{
+      backgroundImage: `url(${bg.src})`,
+    }}
+  >
     <Logo />
   </header>
 ));

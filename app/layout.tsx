@@ -38,7 +38,7 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <div className="flex flex-col min-h-screen">
             <Header />
-            <main className="md:fixed w-[100%]">{children}</main>
+            <main className="w-[100%]">{children}</main>
           </div>
         </NextIntlClientProvider>
       </body>

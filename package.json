@@ -21,6 +21,7 @@
     "next": "15.1.4",
     "next-intl": "^3.26.3",
     "react": "^19.0.0",
+    "react-confetti": "^6.2.2",
     "react-dom": "^19.0.0",
     "react-flip-toolkit": "^7.2.4",
     "react-i18next": "^15.4.0",

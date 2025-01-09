@@ -8,21 +8,27 @@ import GameRulesModal from "@/components/modals/game-rules-modal";
 import CongratsModal from "@/components/modals/congrats-modal";
 import HeaderWithTimer from "@/components/header-with-timer/header-with-timer";
 import CardGrid from "@/components/card-grid/card-grid";
+import Comments from "@/components/comments/comments";
+import { useRegion } from "@/hooks/useRegion";
 
 const Home: FC = memo(() => {
+  const region = useRegion();
   const [showModal, setShowModal] = useState(true);
   const [showCongratsModal, setShowCongratsModal] = useState(false);
   const [flippedIndexes, setFlippedIndexes] = useState<number[]>([]);
   const [foundPairs, setFoundPairs] = useState<StaticImageData[]>([]);
-  const [timer, setTimer] = useState(120);
+  const [timer, setTimer] = useState(165);
+  const [isTimerActive, setIsTimerActive] = useState(false);
 
   useEffect(() => {
+    if (!isTimerActive) return;
+
     const countdown = setInterval(
       () => setTimer((prev) => (prev > 0 ? prev - 1 : 0)),
       1000
     );
     return () => clearInterval(countdown);
-  }, []);
+  }, [isTimerActive]);
 
   useEffect(() => {
     if (flippedIndexes.length === 2) {
@@ -31,35 +37,44 @@ const Home: FC = memo(() => {
       if (shuffledImages[firstIndex] === shuffledImages[secondIndex])
         setFoundPairs((prev) => [...prev, shuffledImages[firstIndex]]);
 
-      const resetFlipped = setTimeout(() => setFlippedIndexes([]), 1000);
+      const resetFlipped = setTimeout(() => setFlippedIndexes([]), 1500);
       return () => clearTimeout(resetFlipped);
     }
   }, [flippedIndexes]);
 
   useEffect(() => {
     if (flippedIndexes.length === 1) {
-      const resetTimer = setTimeout(() => setFlippedIndexes([]), 1000);
+      const resetTimer = setTimeout(() => setFlippedIndexes([]), 1500);
       return () => clearTimeout(resetTimer);
     }
   }, [flippedIndexes]);
 
   useEffect(() => {
-    if (foundPairs.length === images.length) setShowCongratsModal(true);
+    if (foundPairs.length === images.length) {
+      setShowCongratsModal(true);
+      setIsTimerActive(false);
+    }
   }, [foundPairs]);
 
   const handleCardClick = useCallback(
     createCardClickHandler(flippedIndexes, foundPairs, setFlippedIndexes),
     [flippedIndexes, foundPairs]
   );
-  const handlePlay = useCallback(() => setShowModal(false), []);
+
+  const handlePlay = useCallback(() => {
+    setShowModal(false);
+    setIsTimerActive(true);
+  }, []);
+
   const memorizedShuffledImages = useMemo(() => shuffledImages, []);
-  const handleCloseCongratsModal = useCallback(
-    () => setShowCongratsModal(false),
-    []
-  );
+  const handleCloseCongratsModal = useCallback(() => {
+    setShowCongratsModal(false);
+    setIsTimerActive(false);
+    setTimer(165);
+  }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-screen md:mt-32 sm:mt-8">
       <GameRulesModal isOpen={showModal} onPlay={handlePlay} />
       <HeaderWithTimer timer={timer} />
       <CardGrid
@@ -68,6 +83,7 @@ const Home: FC = memo(() => {
         foundPairs={foundPairs}
         onCardClick={handleCardClick}
       />
+      <Comments region={region} />
       <CongratsModal
         isOpen={showCongratsModal}
         onClose={handleCloseCongratsModal}

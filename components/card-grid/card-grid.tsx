@@ -1,9 +1,11 @@
 "use client";
 
 import { FC, memo, useMemo } from "react";
-import Image from "next/image";
-import { motion } from "motion/react";
+import Image, { StaticImageData } from "next/image";
+import { motion } from "framer-motion";
 import { CardGridProps } from "./types";
+import { bgCard } from "@/public/assets";
+import { gradients } from "@/data/mock";
 
 const CardGrid: FC<CardGridProps> = memo(
   ({ shuffledImages, flippedIndexes, foundPairs, onCardClick }) => {
@@ -16,18 +18,27 @@ const CardGrid: FC<CardGridProps> = memo(
       [flippedIndexes, foundPairs, shuffledImages]
     );
 
+    const getGradient = (image: StaticImageData) => {
+      const pairIndex = foundPairs.findIndex(
+        (foundImage) => foundImage.src === image.src
+      );
+      return pairIndex !== -1 ? gradients[pairIndex % gradients.length] : null;
+    };
+
     return (
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-3 gap-4 my-6">
         {shuffledImages?.map((image, index) => {
           const isFlipped = flippedStates[index];
+          const gradient = getGradient(image);
 
           return (
             <motion.div
-              key={index}
-              className="relative w-24 h-24 cursor-pointer"
+              key={`card-${index}`}
+              className="relative w-28 h-28 cursor-pointer"
               onClick={() => onCardClick(index)}
               whileHover={{ scale: 1.05 }}
             >
+              {/* back card */}
               <motion.div
                 className={`absolute inset-0 flex items-center justify-center ${
                   isFlipped ? "rotate-y-0" : "rotate-y-180"
@@ -47,16 +58,26 @@ const CardGrid: FC<CardGridProps> = memo(
                 }}
               >
                 {isFlipped && (
-                  <Image
-                    src={image}
-                    alt="card"
-                    className="absolute w-full h-full object-cover"
-                  />
+                  <div
+                    className="absolute inset-0 rounded-xl"
+                    style={{
+                      background: gradient || "transparent",
+                    }}
+                  >
+                    <Image
+                      src={image}
+                      alt="card"
+                      className="absolute w-full h-full object-cover rounded-xl"
+                    />
+                  </div>
                 )}
               </motion.div>
+
+              {/* front card  bgCard*/}
               <motion.div
-                className={`absolute inset-0 bg-blue-500`}
+                className="absolute inset-0 rounded-xl flex justify-center items-center bg-cover bg-center"
                 style={{
+                  backgroundImage: `url(${bgCard.src})`,
                   backfaceVisibility: "hidden",
                   perspective: 1000,
                 }}
@@ -68,7 +89,7 @@ const CardGrid: FC<CardGridProps> = memo(
                   stiffness: 260,
                   damping: 20,
                 }}
-              />
+              ></motion.div>
             </motion.div>
           );
         })}
