@@ -32,7 +32,7 @@ const CardGrid: FC<CardGridProps> = memo(
           return (
             <motion.div
               key={`card-${index}`}
-              className="relative w-28 h-28 cursor-pointer"
+              className="relative w-24 h-24 cursor-pointer"
               onClick={() => onCardClick(index)}
               whileHover={{ scale: 1.05 }}
             >

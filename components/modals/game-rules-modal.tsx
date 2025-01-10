@@ -20,7 +20,7 @@ const GameRulesModal: FC<GameRulesModalProps> = memo(({ isOpen, onPlay }) => {
         exit={{ opacity: 0, scale: 0.8 }}
         transition={{ duration: 0.9, ease: "easeInOut" }}
       >
-        <DialogContent className="w-[86%]">
+        <DialogContent className="w-[86%] rounded-lg">
           <DialogTitle></DialogTitle>
           <div className="text-center">
             <h2 className="text-[#5E44ED] text-4xl font-bold">{t("time")}</h2>

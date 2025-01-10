@@ -30,7 +30,7 @@ const CongratsModal: FC<CongratsModalProps> = memo(({ isOpen, onClose }) => {
         exit={{ opacity: 0, scale: 0.8 }}
         transition={{ duration: 0.9, ease: "easeInOut" }}
       >
-        <DialogContent className="w-[86%]">
+        <DialogContent className="w-[86%] rounded-lg">
           <DialogTitle></DialogTitle>
           <div className="text-center">
             <Image
