@@ -5,6 +5,7 @@ import Image from "next/image";
 import { reactions } from "@/types/comment-types";
 import { CommentItemProps } from "./types";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 const CommentItem: FC<CommentItemProps> = memo(
   ({ avatar, name, text, commentImage, time, likes }) => {
@@ -37,8 +38,17 @@ const CommentItem: FC<CommentItemProps> = memo(
         <div className="w-full mt-2 flex items-center justify-between space-x-2 text-sm">
           <div className="flex items-center gap-2">
             <span className="text-sm text-zinc-500">{time}</span>
-            <span className="text-sm text-zinc-500">{t("like")}</span>
-            <span className="text-sm text-zinc-500">{t("reply")}</span>
+            {/* !TODO: need a chenge href prop to real App */}
+            <Link href={"/"} className="underline">
+              <span className="text-sm text-zinc-500 hover:text-zinc-400 transition">
+                {t("like")}
+              </span>
+            </Link>
+            <Link href={"/"} className="underline">
+              <span className="text-sm text-zinc-500 hover:text-zinc-400 transition">
+                {t("reply")}
+              </span>
+            </Link>
           </div>
           <div className="flex items-center gap-1">
             <span className="text-sm text-zinc-500">{likes}</span>

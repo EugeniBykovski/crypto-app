@@ -37,22 +37,22 @@ const Home: FC = memo(() => {
       if (shuffledImages[firstIndex] === shuffledImages[secondIndex])
         setFoundPairs((prev) => [...prev, shuffledImages[firstIndex]]);
 
-      const resetFlipped = setTimeout(() => setFlippedIndexes([]), 2000);
+      const resetFlipped = setTimeout(() => setFlippedIndexes([]), 1500);
       return () => clearTimeout(resetFlipped);
     }
   }, [flippedIndexes]);
 
   useEffect(() => {
     if (flippedIndexes.length === 1) {
-      const resetTimer = setTimeout(() => setFlippedIndexes([]), 2000);
+      const resetTimer = setTimeout(() => setFlippedIndexes([]), 1500);
       return () => clearTimeout(resetTimer);
     }
   }, [flippedIndexes]);
 
   useEffect(() => {
     if (foundPairs.length === images.length) {
-      setShowCongratsModal(true);
       setIsTimerActive(false);
+      setTimeout(() => setShowCongratsModal(true), 1000);
     }
   }, [foundPairs]);
 
@@ -88,7 +88,7 @@ const Home: FC = memo(() => {
         foundPairs={foundPairs}
         onCardClick={handleCardClick}
       />
-      <Comments region={region} />
+      <Comments region={region} isGameStarted={isTimerActive} />
       <CongratsModal
         isOpen={showCongratsModal}
         onClose={handleCloseCongratsModal}

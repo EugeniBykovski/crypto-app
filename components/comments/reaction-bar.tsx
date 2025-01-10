@@ -6,6 +6,7 @@ import { likeHand, comment } from "@/public/assets";
 import { reactions } from "@/types/comment-types";
 import { ReactionBarProps } from "./types";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 const ReactionBar: FC<ReactionBarProps> = memo(({ likeCount = 0 }) => {
   const t = useTranslations("reaction-bar");
@@ -21,7 +22,12 @@ const ReactionBar: FC<ReactionBarProps> = memo(({ likeCount = 0 }) => {
             height={18}
             className="rounded-full"
           />
-          <p className="text-sm text-zinc-500">{t("like")}</p>
+          {/* !TODO: need a chenge href prop to real App */}
+          <Link href={"/"} className="underline">
+            <p className="text-sm text-zinc-500 hover:text-zinc-400 transition">
+              {t("like")}
+            </p>
+          </Link>
         </div>
         <div className="flex items-center gap-1">
           <Image
@@ -31,7 +37,12 @@ const ReactionBar: FC<ReactionBarProps> = memo(({ likeCount = 0 }) => {
             height={18}
             className="rounded-full"
           />
-          <p className="text-sm text-zinc-500">{t("reply")}</p>
+          {/* !TODO: need a chenge href prop to real App */}
+          <Link href={"/"} className="underline">
+            <p className="text-sm text-zinc-500 hover:text-zinc-400 transition">
+              {t("reply")}
+            </p>
+          </Link>
         </div>
       </div>
       <div className="flex items-center gap-2">

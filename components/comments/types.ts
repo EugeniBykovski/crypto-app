@@ -2,6 +2,7 @@ import { StaticImageData } from "next/image";
 
 export type CommentsProps = {
   region: "eu" | "asia" | "mex";
+  isGameStarted: boolean;
 };
 
 export interface ReactionBarProps {

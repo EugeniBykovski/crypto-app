@@ -6,11 +6,16 @@ import { CommentsProps } from "./types";
 import ReactionBar from "./reaction-bar";
 import CommentItem from "./comment-item";
 
-const Comments: FC<CommentsProps> = ({ region }) => {
+const Comments: FC<CommentsProps> = ({ region, isGameStarted }) => {
   const [visibleComments, setVisibleComments] = useState<number>(5);
   const allComments = comments[region];
 
   useEffect(() => {
+    if (!isGameStarted) {
+      setVisibleComments(5);
+      return;
+    }
+
     let commentIndex = 0;
 
     const interval = setInterval(() => {
@@ -20,10 +25,10 @@ const Comments: FC<CommentsProps> = ({ region }) => {
       } else {
         clearInterval(interval);
       }
-    }, 2000);
+    }, 3000);
 
     return () => clearInterval(interval);
-  }, [allComments]);
+  }, [isGameStarted, allComments]);
 
   return (
     <div className="space-y-8 px-4">

@@ -9,6 +9,7 @@ import { money } from "@/public/assets";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 const CongratsModal: FC<CongratsModalProps> = memo(({ isOpen, onClose }) => {
   const t = useTranslations("congrats-modal");
@@ -56,12 +57,15 @@ const CongratsModal: FC<CongratsModalProps> = memo(({ isOpen, onClose }) => {
               <span className="text-zinc-700 font-semibold">{t("bonus")}</span>!
             </p>
             <p className="text-sm text-gray-500 mt-1">{t("description-2")}</p>
-            <Button
-              className="mt-5 focus-visible:ring-0 bg-[#5E44ED] text-white py-5 w-full rounded-lg shadow-md hover:bg-purple-700 font-semibold text-md"
-              onClick={onClose}
-            >
-              {t("download")}
-            </Button>
+            {/* !TODO: need a chenge href prop to real App */}
+            <Link href={"/"}>
+              <Button
+                className="mt-5 focus-visible:ring-0 bg-[#5E44ED] text-white py-5 w-full rounded-lg shadow-md hover:bg-purple-700 font-semibold text-md"
+                onClick={onClose}
+              >
+                {t("download")}
+              </Button>
+            </Link>
           </div>
         </DialogContent>
       </motion.div>
