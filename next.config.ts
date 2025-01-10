@@ -30,7 +30,6 @@ const nextConfig: NextConfig = {
     fileLoaderRule.exclude = /\.svg$/i;
     return config;
   },
-  output: "export",
   basePath: "/crypto-app",
   assetPrefix: "/crypto-app",
 };
