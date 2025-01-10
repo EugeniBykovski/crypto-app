@@ -19,6 +19,7 @@ const Home: FC = memo(() => {
   const [foundPairs, setFoundPairs] = useState<StaticImageData[]>([]);
   const [timer, setTimer] = useState(165);
   const [isTimerActive, setIsTimerActive] = useState(false);
+  const [isGameFinished, setIsGameFinished] = useState(false);
 
   useEffect(() => {
     if (!isTimerActive) return;
@@ -52,6 +53,7 @@ const Home: FC = memo(() => {
   useEffect(() => {
     if (foundPairs.length === images.length) {
       setIsTimerActive(false);
+      setIsGameFinished(true);
       setTimeout(() => setShowCongratsModal(true), 1000);
     }
   }, [foundPairs]);
@@ -69,6 +71,7 @@ const Home: FC = memo(() => {
   const handlePlay = useCallback(() => {
     setShowModal(false);
     setIsTimerActive(true);
+    setIsGameFinished(false);
   }, []);
 
   const memorizedShuffledImages = useMemo(() => shuffledImages, []);
@@ -88,7 +91,11 @@ const Home: FC = memo(() => {
         foundPairs={foundPairs}
         onCardClick={handleCardClick}
       />
-      <Comments region={region} isGameStarted={isTimerActive} />
+      <Comments
+        region={region}
+        isGameStarted={isTimerActive}
+        isGameFinished={isGameFinished}
+      />
       <CongratsModal
         isOpen={showCongratsModal}
         onClose={handleCloseCongratsModal}

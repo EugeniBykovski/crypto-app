@@ -23,6 +23,12 @@ const CardGrid: FC<CardGridProps> = memo(
       return pairIndex >= 0 ? gradients[pairIndex % gradients.length] : null;
     };
 
+    const spring = {
+      type: "spring",
+      stiffness: 300,
+      damping: 40,
+    };
+
     return (
       <div className="grid grid-cols-3 gap-4 my-6">
         {shuffledImages?.map((image, index) => {
@@ -37,9 +43,7 @@ const CardGrid: FC<CardGridProps> = memo(
               whileHover={{ scale: 1.05 }}
             >
               <motion.div
-                className={`absolute inset-0 flex items-center justify-center ${
-                  isFlipped ? "rotate-y-0" : "rotate-y-180"
-                }`}
+                className="absolute inset-0 flex items-center justify-center"
                 style={{
                   transformStyle: "preserve-3d",
                   backfaceVisibility: "hidden",
@@ -48,11 +52,7 @@ const CardGrid: FC<CardGridProps> = memo(
                 animate={{
                   rotateY: isFlipped ? 0 : 180,
                 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 260,
-                  damping: 20,
-                }}
+                transition={spring}
               >
                 {isFlipped && (
                   <div
@@ -75,15 +75,13 @@ const CardGrid: FC<CardGridProps> = memo(
                   backgroundImage: `url(${bgCard.src})`,
                   backfaceVisibility: "hidden",
                   perspective: 1000,
+                  zIndex: isFlipped ? 0 : 1,
+                  position: "absolute",
                 }}
                 animate={{
                   rotateY: isFlipped ? -180 : 0,
                 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 260,
-                  damping: 20,
-                }}
+                transition={spring}
               ></motion.div>
             </motion.div>
           );
