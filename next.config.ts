@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
       rule.test?.test?.(".svg")
     );
 
+    if (!fileLoaderRule) {
+      throw new Error("SVG loader rule not found in Webpack configuration.");
+    }
+
     config.module.rules.push(
       {
         ...fileLoaderRule,
@@ -16,7 +20,9 @@ const nextConfig: NextConfig = {
       {
         test: /\.svg$/i,
         issuer: fileLoaderRule.issuer,
-        resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] },
+        resourceQuery: {
+          not: [...(fileLoaderRule.resourceQuery?.not || []), /url/],
+        },
         use: ["@svgr/webpack"],
       }
     );
@@ -24,6 +30,8 @@ const nextConfig: NextConfig = {
     fileLoaderRule.exclude = /\.svg$/i;
     return config;
   },
+
+  output: "export",
 };
 
 const withNextIntl = createNextIntlPlugin();

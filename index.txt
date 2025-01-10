@@ -1,0 +1,22 @@
+1:"$Sreact.fragment"
+3:I[7033,[],"ClientPageRoot"]
+4:I[9848,["472","static/chunks/472-db579aa01d0580ef.js","474","static/chunks/474-99c780c2a5dd2aba.js","974","static/chunks/app/page-4a343013d7aa8dba.js"],"default"]
+7:I[6213,[],"OutletBoundary"]
+9:I[6213,[],"MetadataBoundary"]
+b:I[6213,[],"ViewportBoundary"]
+d:I[4835,[],""]
+:HL["/_next/static/media/7e6a2e30184bb114-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/c50f25d04cdaf819.css","style"]
+0:{"P":null,"b":"UWIsALmUzlmkJSlpq8iD1","p":"","c":["",""],"i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/c50f25d04cdaf819.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],"$L2"]}],{"children":["__PAGE__",["$","$1","c",{"children":[["$","$L3",null,{"Component":"$4","searchParams":{},"params":{},"promises":["$@5","$@6"]}],null,["$","$L7",null,{"children":"$L8"}]]}],{},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","1xXGZ0n4bbaeMjjKOij8t",{"children":[["$","$L9",null,{"children":"$La"}],["$","$Lb",null,{"children":"$Lc"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]]}],false]],"m":"$undefined","G":["$d","$undefined"],"s":false,"S":true}
+5:{}
+6:{}
+2:["$","html",null,{"lang":"en","className":"relative","children":[null,["$","body",null,{"className":"__className_05e5f9 antialiased","children":"$Le"}]]}]
+f:I[9981,["173","static/chunks/173-af8367c431ddf401.js","474","static/chunks/474-99c780c2a5dd2aba.js","177","static/chunks/app/layout-2607334dbd2d336a.js"],"default"]
+10:I[9114,["173","static/chunks/173-af8367c431ddf401.js","474","static/chunks/474-99c780c2a5dd2aba.js","177","static/chunks/app/layout-2607334dbd2d336a.js"],"default"]
+11:I[5244,[],""]
+12:I[3866,[],""]
+13:I[8173,["173","static/chunks/173-af8367c431ddf401.js","474","static/chunks/474-99c780c2a5dd2aba.js","345","static/chunks/app/not-found-b488bcea2f9c0094.js"],""]
+e:["$","$Lf",null,{"locale":"en","now":"$D2025-01-10T12:08:18.823Z","timeZone":"Europe/Warsaw","messages":{"rules-modal":{"time":"2m 45s","time-description-1":"time left to play","time-description-2":"You are selected for CryptoSkill","time-description-3":"limited offer!","time-description-4":"Match pictures and win virtual","bonus":"$$3,000!","play":"Play"},"congrats-modal":{"title":"Congratulations!","description-1":"You won virtual","description-2":"Download the app now and trade for free","bonus":"$$3,000","download":"Download Bonus App"},"header-timer":{"title":"Your Chance to Win!","description-1":"Limited-time prize, so hurry up!","description-2":"time left to play"},"reaction-bar":{"like":"Like","reply":"Reply"},"comment-item":{"like":"Like","reply":"Reply"}},"children":["$","div",null,{"className":"flex flex-col min-h-screen","children":[["$","$L10",null,{}],["$","main",null,{"className":"w-[100%]","children":["$","$L11",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[],["$","section",null,{"className":"flex flex-col justify-center items-center gap-4 h-[70vh] text-zinc-700","children":[["$","h1",null,{"className":"text-4xl","children":"404"}],["$","p",null,{"children":"We couldn't find the page you were looking for :("}],["$","$L13",null,{"href":"/","children":"Go Home","className":"inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 text-primary-foreground shadow h-9 px-4 py-2 bg-violet-600 hover:bg-violet-700","ref":null}]]}]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]}]
+c:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"Crypto Skill"}],["$","meta","2",{"name":"description","content":"Crypto Skill"}],["$","link","3",{"rel":"shortcut icon","href":"/assets/icons/Icon.svg"}],["$","link","4",{"rel":"icon","href":"/favicon.ico","type":"image/x-icon","sizes":"16x16"}],["$","link","5",{"rel":"icon","href":"/assets/icons/Icon.svg"}]]
+8:null
