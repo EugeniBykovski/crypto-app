@@ -11,13 +11,13 @@ const Comments: FC<CommentsProps> = ({
   isGameStarted,
   isGameFinished,
 }) => {
-  const [visibleComments, setVisibleComments] = useState<number>(5);
+  const [visibleComments, setVisibleComments] = useState<number>(4);
   const allComments = comments[region];
 
   useEffect(() => {
     if (!isGameStarted) {
       if (!isGameFinished) {
-        setVisibleComments(5);
+        setVisibleComments(4);
       }
       return;
     }
@@ -25,7 +25,7 @@ const Comments: FC<CommentsProps> = ({
     let commentIndex = 0;
 
     const interval = setInterval(() => {
-      if (commentIndex < 2) {
+      if (commentIndex < 3) {
         setVisibleComments((prev) => prev + 1);
         commentIndex++;
       } else {
@@ -48,6 +48,11 @@ const Comments: FC<CommentsProps> = ({
               : "opacity-0"
           }`}
           style={{
+            position:
+              index < allComments.length - visibleComments
+                ? "absolute"
+                : "relative",
+            top: index < allComments.length - visibleComments ? 0 : "auto",
             height: index >= allComments.length - visibleComments ? "auto" : 0,
             overflow: "hidden",
           }}
