@@ -2,7 +2,12 @@
 
 import { FC, memo, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { CongratsModalProps } from "./types";
 import Image from "next/image";
 import { money } from "@/public/assets";
@@ -57,8 +62,7 @@ const CongratsModal: FC<CongratsModalProps> = memo(({ isOpen, onClose }) => {
               <span className="text-zinc-700 font-semibold">{t("bonus")}</span>!
             </p>
             <p className="text-sm text-gray-500 mt-1">{t("description-2")}</p>
-            {/* !TODO: need a chenge href prop to real App */}
-            <Link href={"/"}>
+            <Link href={"https://my.toruftuiov.com/click"}>
               <Button
                 className="mt-5 focus-visible:ring-0 bg-[#5E44ED] text-white py-5 w-full rounded-lg shadow-md hover:bg-purple-700 font-semibold text-md"
                 onClick={onClose}
