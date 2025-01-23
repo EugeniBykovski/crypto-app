@@ -10,7 +10,8 @@ import jewelry from "@/public/assets/images/img-card-3.svg";
 
 import money from "@/public/assets/icons/money.svg";
 import comment from "@/public/assets/icons/comment_icon.svg";
-import likeHand from "@/public/assets/icons/like_hand.svg";
+// import likeHand from "@/public/assets/icons/like_hand.svg";
+import likeHand from "@/public/assets/icons/like_hand_png.webp";
 import smile from "@/public/assets/icons/smile.svg";
 import like from "@/public/assets/icons/like.svg";
 import heart from "@/public/assets/icons/heart.svg";
