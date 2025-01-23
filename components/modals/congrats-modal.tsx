@@ -2,12 +2,7 @@
 
 import { FC, memo, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { CongratsModalProps } from "./types";
 import Image from "next/image";
 import { money } from "@/public/assets";
