@@ -4,19 +4,17 @@ import bg from "@/public/assets/images/bg.webp";
 import bgCard from "@/public/assets/images/bg-card.webp";
 
 import bag from "@/public/assets/images/bag.svg";
+import money from "@/public/assets/icons/money.png";
+import boat from "@/public/assets/images/img-card-1.png";
+import sailboat from "@/public/assets/images/img-card-2.png";
+import jewelry from "@/public/assets/images/img-card-3.png";
 
-import boat from "@/public/assets/images/img-card-1_png.webp";
-import sailboat from "@/public/assets/images/img-card-2_png.webp";
-import jewelry from "@/public/assets/images/img-card-3_png.webp";
-
-import money from "@/public/assets/icons/money_png.webp";
-import comment from "@/public/assets/icons/comment_icon_png.webp";
-import likeHand from "@/public/assets/icons/like_hand_png.webp";
-import smile from "@/public/assets/icons/smile_png.webp";
-import like from "@/public/assets/icons/like_new.svg";
-import heart from "@/public/assets/icons/heart_png.webp";
+export { LikeHandIcon } from "@/public/assets/icons/like-hand";
+export { CommentIcon } from "@/public/assets/icons/comment";
 
 export { LikeIcon } from "@/public/assets/icons/logos/like-icon";
+export { SmileIcon } from "@/public/assets/icons/logos/smile-icon";
+export { HeartIcon } from "@/public/assets/icons/logos/heart-icon";
 
 // eu
 import commentImage1Eu from "@/public/assets/images/eu/comment-image/image-1.webp";
@@ -60,13 +58,8 @@ export {
   boat,
   sailboat,
   jewelry,
-  bag,
   money,
-  comment,
-  likeHand,
-  smile,
-  like,
-  heart,
+  bag,
   commentImage1Eu,
   commentImage2Eu,
   commentImage3Eu,

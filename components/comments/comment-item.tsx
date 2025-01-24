@@ -41,7 +41,6 @@ const CommentItem: FC<CommentItemProps> = memo(
         <div className="w-full mt-2 flex items-center justify-between space-x-2 text-sm">
           <div className="flex items-center gap-2">
             <span className="text-sm text-zinc-500">{time}</span>
-            {/* !TODO: need a chenge href prop to real App */}
             <Link href={"/"} className="underline">
               <span className="text-sm text-zinc-500 hover:text-zinc-400 transition">
                 {t("like")}

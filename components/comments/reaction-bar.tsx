@@ -5,7 +5,7 @@
 
 import { FC, memo } from "react";
 import Image from "next/image";
-import { likeHand, comment } from "@/public/assets";
+import { LikeHandIcon, CommentIcon } from "@/public/assets";
 import { reactions } from "@/types/comment-types";
 import { ReactionBarProps } from "./types";
 import { useTranslations } from "next-intl";
@@ -18,14 +18,12 @@ const ReactionBar: FC<ReactionBarProps> = memo(({ likeCount = 0 }) => {
     <div className="flex justify-between items-center mt-4">
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-1">
-          <Image
-            src={likeHand}
+          <LikeHandIcon
             alt="likeHand"
             width={18}
             height={18}
             className="rounded-full"
           />
-          {/* !TODO: need a chenge href prop to real App */}
           <Link href={"/"} className="underline">
             <p className="text-sm text-zinc-500 hover:text-zinc-400 transition">
               {t("like")}
@@ -33,14 +31,12 @@ const ReactionBar: FC<ReactionBarProps> = memo(({ likeCount = 0 }) => {
           </Link>
         </div>
         <div className="flex items-center gap-1">
-          <Image
-            src={comment}
+          <CommentIcon
             alt="comment"
             width={18}
             height={18}
             className="rounded-full"
           />
-          {/* !TODO: need a chenge href prop to real App */}
           <Link href={"/"} className="underline">
             <p className="text-sm text-zinc-500 hover:text-zinc-400 transition">
               {t("reply")}

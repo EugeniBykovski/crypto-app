@@ -1,4 +1,3 @@
-import { IconType } from "@/types/types";
 import { FC } from "react";
 
 export const LikeIcon: FC<React.SVGProps<SVGSVGElement>> = (props) => (
