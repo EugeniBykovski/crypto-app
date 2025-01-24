@@ -49,15 +49,19 @@ const ReactionBar: FC<ReactionBarProps> = memo(({ likeCount = 0 }) => {
         <span className="text-sm text-zinc-500">{likeCount}</span>
         <div className="flex items-center relative -space-x-2">
           {reactions.map((reaction, index) => (
-            <Image
-              key={index}
-              src={reaction.src}
-              alt={reaction.alt}
-              width={24}
-              height={24}
-              className="rounded-full border-2 border-white"
-              style={{ zIndex: reactions.length - index }}
-            />
+            <div key={index} className="relative z-10">
+              {typeof reaction.src === "function" ? (
+                <>{reaction.src({ width: 24, height: 24 })}</>
+              ) : (
+                <Image
+                  src={reaction.src}
+                  alt={reaction.alt}
+                  width={24}
+                  height={24}
+                  className="rounded-full border-2 border-white"
+                />
+              )}
+            </div>
           ))}
         </div>
       </div>

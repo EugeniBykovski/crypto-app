@@ -1,4 +1,4 @@
-import { heart, like, smile } from "@/public/assets";
+import { LikeIcon } from "@/public/assets/icons/logos/like-icon";
 import { StaticImageData } from "next/image";
 
 export type Comment = {
@@ -12,7 +12,8 @@ export type Comment = {
 };
 
 export const reactions = [
-  { src: like, alt: "like" },
-  { src: heart, alt: "heart" },
-  { src: smile, alt: "smile" },
+  {
+    src: LikeIcon,
+    alt: "like",
+  },
 ];

@@ -16,6 +16,8 @@ import smile from "@/public/assets/icons/smile_png.webp";
 import like from "@/public/assets/icons/like_new.svg";
 import heart from "@/public/assets/icons/heart_png.webp";
 
+export { LikeIcon } from "@/public/assets/icons/logos/like-icon";
+
 // eu
 import commentImage1Eu from "@/public/assets/images/eu/comment-image/image-1.webp";
 import commentImage2Eu from "@/public/assets/images/eu/comment-image/image-2.webp";
