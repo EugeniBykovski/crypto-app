@@ -4,6 +4,7 @@ import bg from "@/public/assets/images/bg.webp";
 import bgCard from "@/public/assets/images/bg-card.webp";
 
 import bag from "@/public/assets/images/bag.svg";
+
 import boat from "@/public/assets/images/img-card-1_png.webp";
 import sailboat from "@/public/assets/images/img-card-2_png.webp";
 import jewelry from "@/public/assets/images/img-card-3_png.webp";
@@ -12,7 +13,7 @@ import money from "@/public/assets/icons/money_png.webp";
 import comment from "@/public/assets/icons/comment_icon_png.webp";
 import likeHand from "@/public/assets/icons/like_hand_png.webp";
 import smile from "@/public/assets/icons/smile_png.webp";
-import like from "@/public/assets/icons/like_png.webp";
+import like from "@/public/assets/icons/like_new.svg";
 import heart from "@/public/assets/icons/heart_png.webp";
 
 // eu
