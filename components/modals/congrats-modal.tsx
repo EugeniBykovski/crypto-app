@@ -57,7 +57,7 @@ const CongratsModal: FC<CongratsModalProps> = memo(({ isOpen, onClose }) => {
               <span className="text-zinc-700 font-semibold">{t("bonus")}</span>!
             </p>
             <p className="text-sm text-gray-500 mt-1">{t("description-2")}</p>
-            <Link href={"https://my.poruftuiov.com"}>
+            <Link href={"https://my.poruftuiov.com/click"}>
               <Button
                 className="mt-5 focus-visible:ring-0 bg-[#5E44ED] text-white py-5 w-full rounded-lg shadow-md hover:bg-purple-700 font-semibold text-md"
                 onClick={onClose}
